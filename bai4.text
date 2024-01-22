@@ -1,0 +1,31 @@
+--Viết câu lệnh SQL để lấy tất cả các dữ liệu từ bảng employees.
+select * from employess
+-- Viết câu lệnh SQL để lấy tên và lương của mỗi nhân viên từ bảng employees.
+select first_name , salary from employess
+-- Viết câu lệnh SQL để lấy tất cả các nhân viên có lương lớn hơn 5000 từ bảng employees.
+select * from employess
+where salary > 5000
+--Viết câu lệnh SQL để lấy tất cả các nhân viên có tên bắt đầu bằng chữ 'A' từ bảng employees.
+select * from employess
+where first_name like "A*"
+--Giả sử có hai bảng employees và departments. Viết câu lệnh SQL để lấy danh sách các nhân viên cùng với tên phòng ban của họ.
+select last_name, first_name , departments_id from employess as e
+join departments as d on e.employee_id = d.employee_id
+--Viết câu lệnh SQL để lấy số lượng nhân viên trong mỗi phòng ban từ bảng employees.
+select count(e.employess_id) as "số nhân viên : ", departments_id from employess as e
+join departments as d on e.employee_id = d.employee_id
+group by departments_id
+--Viết câu lệnh SQL để lấy các phòng ban có nhiều hơn 10 nhân viên từ bảng employees.
+select departments_id from employess as e
+join departments as d on e.employee_id = d.employee_id
+where count(e.employess_id) > 10
+group by departments_id
+--Viết câu lệnh SQL để thêm một nhân viên mới vào bảng employees.
+INSERT INTO employees (employee_id, first_name, last_name, email, hire_date)
+VALUES (101, 'John', 'Doe', 'john.doe@example.com', '2024-01-22')
+--Viết câu lệnh SQL để tăng lương cho tất cả các nhân viên trong bảng employees lên 10%.
+UPDATE employees
+SET salary = salary * 1.1
+--DELETE FROM employees
+WHERE employee_id = 10
+go
